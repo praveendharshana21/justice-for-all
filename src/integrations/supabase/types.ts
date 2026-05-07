@@ -14,13 +14,68 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      signatures: {
+        Row: {
+          consent: boolean
+          country: string | null
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          phone: string | null
+          reason: string | null
+        }
+        Insert: {
+          consent?: boolean
+          country?: string | null
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          phone?: string | null
+          reason?: string | null
+        }
+        Update: {
+          consent?: boolean
+          country?: string | null
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          phone?: string | null
+          reason?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
-      [_ in never]: never
+      signatures_public: {
+        Row: {
+          country: string | null
+          created_at: string | null
+          full_name: string | null
+          id: string | null
+          reason: string | null
+        }
+        Insert: {
+          country?: string | null
+          created_at?: string | null
+          full_name?: string | null
+          id?: string | null
+          reason?: string | null
+        }
+        Update: {
+          country?: string | null
+          created_at?: string | null
+          full_name?: string | null
+          id?: string | null
+          reason?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
-      [_ in never]: never
+      signatures_count: { Args: never; Returns: number }
     }
     Enums: {
       [_ in never]: never
