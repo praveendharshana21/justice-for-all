@@ -142,3 +142,14 @@
     color: var(--color-foreground);
   }
 }
+
+@layer utilities {
+  .counter-glow {
+    text-shadow: 0 4px 30px color-mix(in oklab, var(--color-primary) 30%, transparent);
+  }
+  .hero-gradient {
+    background:
+      radial-gradient(ellipse at top, color-mix(in oklab, var(--color-primary) 12%, transparent), transparent 60%),
+      linear-gradient(180deg, var(--color-background), color-mix(in oklab, var(--color-secondary) 60%, var(--color-background)));
+  }
+}
