@@ -40,8 +40,13 @@ function Index() {
 
       {/* Hero */}
       <section id="top" className="hero-gradient">
-        <div className="max-w-6xl mx-auto px-4 py-16 sm:py-24">
-          <div className="text-center max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto px-4 py-10 sm:py-16">
+          {/* Counter shown first, above the fold */}
+          <div className="bg-card/80 backdrop-blur border-2 border-primary/20 rounded-3xl p-6 sm:p-10 shadow-2xl shadow-primary/10">
+            <SignatureCounter />
+          </div>
+
+          <div className="text-center max-w-4xl mx-auto mt-12">
             <span className="inline-block text-sm font-bold uppercase tracking-widest text-accent bg-accent/10 px-4 py-2 rounded-full">
               Public Petition
             </span>
@@ -51,10 +56,6 @@ function Index() {
             <p className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
               {t.hero_sub}
             </p>
-          </div>
-
-          <div className="mt-16 bg-card/80 backdrop-blur border-2 border-primary/20 rounded-3xl p-8 sm:p-12 shadow-2xl shadow-primary/10">
-            <SignatureCounter />
             <div className="mt-10 flex justify-center">
               <a
                 href="#sign"
