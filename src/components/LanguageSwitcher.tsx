@@ -5,19 +5,34 @@ import { Globe } from "lucide-react";
 export function LanguageSwitcher() {
   const { lang, setLang, t } = useLang();
   return (
-    <div className="flex items-center gap-2 sm:gap-3">
-      <Globe className="h-6 w-6 text-primary shrink-0" aria-hidden />
-      <label htmlFor="lang-select" className="sr-only">{t.language}</label>
-      <select
-        id="lang-select"
-        value={lang}
-        onChange={(e) => setLang(e.target.value as Lang)}
-        className="text-lg sm:text-xl font-bold bg-card border-2 border-primary rounded-lg px-4 py-2 sm:px-5 sm:py-3 text-foreground shadow-sm cursor-pointer hover:bg-secondary transition focus:outline-none focus:ring-4 focus:ring-primary/30"
+    <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+      <Globe className="h-7 w-7 text-primary shrink-0" aria-hidden />
+      <span className="sr-only">{t.language}</span>
+      <div
+        role="group"
+        aria-label={t.language}
+        className="inline-flex rounded-xl border-2 border-primary bg-card shadow-sm overflow-hidden"
       >
-        {LANGS.map((l) => (
-          <option key={l.code} value={l.code}>{l.native}</option>
-        ))}
-      </select>
+        {LANGS.map((l) => {
+          const active = lang === l.code;
+          return (
+            <button
+              key={l.code}
+              type="button"
+              onClick={() => setLang(l.code as Lang)}
+              aria-pressed={active}
+              className={[
+                "px-5 py-3 sm:px-7 sm:py-4 text-xl sm:text-2xl font-extrabold tracking-wide transition focus:outline-none focus:ring-4 focus:ring-primary/30",
+                active
+                  ? "bg-primary text-primary-foreground"
+                  : "text-foreground hover:bg-secondary",
+              ].join(" ")}
+            >
+              {l.native}
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }
