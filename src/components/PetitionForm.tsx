@@ -25,7 +25,6 @@ export function PetitionForm() {
       full_name: String(fd.get("full_name") || ""),
       email: String(fd.get("email") || ""),
       phone: String(fd.get("phone") || ""),
-      country: String(fd.get("country") || ""),
       reason: String(fd.get("reason") || ""),
       consent: fd.get("consent") === "on",
     };
@@ -39,7 +38,6 @@ export function PetitionForm() {
       full_name: parsed.data.full_name,
       email: parsed.data.email,
       phone: parsed.data.phone || null,
-      country: parsed.data.country || null,
       reason: parsed.data.reason || null,
       consent: true,
     });
