@@ -13,7 +13,7 @@ export function PetitionForm() {
     full_name: z.string().trim().min(1, t.validation_required).max(100),
     email: z.string().trim().email(t.validation_email).max(255),
     phone: z.string().trim().max(50).optional().or(z.literal("")),
-    country: z.string().trim().max(100).optional().or(z.literal("")),
+    
     reason: z.string().trim().max(1000).optional().or(z.literal("")),
     consent: z.literal(true, { errorMap: () => ({ message: t.validation_consent }) }),
   });
