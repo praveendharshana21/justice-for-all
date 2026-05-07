@@ -59,14 +59,9 @@ export function PetitionForm() {
       <Field label={t.email} required>
         <input name="email" type="email" required maxLength={255} className={inputCls} />
       </Field>
-      <div className="grid sm:grid-cols-2 gap-5">
-        <Field label={t.phone}>
-          <input name="phone" maxLength={50} className={inputCls} />
-        </Field>
-        <Field label={t.country}>
-          <input name="country" maxLength={100} className={inputCls} />
-        </Field>
-      </div>
+      <Field label={t.phone}>
+        <input name="phone" maxLength={50} className={inputCls} />
+      </Field>
       <Field label={t.reason}>
         <textarea name="reason" rows={4} maxLength={1000} className={inputCls} />
       </Field>
