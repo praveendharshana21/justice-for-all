@@ -13,7 +13,7 @@ export function PetitionForm() {
     full_name: z.string().trim().min(1, t.validation_required).max(100),
     email: z.string().trim().email(t.validation_email).max(255),
     phone: z.string().trim().max(50).optional().or(z.literal("")),
-    
+    country: z.string().trim().max(100).optional().or(z.literal("")),
     reason: z.string().trim().max(1000).optional().or(z.literal("")),
     consent: z.literal(true, { errorMap: () => ({ message: t.validation_consent }) }),
   });
@@ -25,6 +25,7 @@ export function PetitionForm() {
       full_name: String(fd.get("full_name") || ""),
       email: String(fd.get("email") || ""),
       phone: String(fd.get("phone") || ""),
+      country: String(fd.get("country") || ""),
       reason: String(fd.get("reason") || ""),
       consent: fd.get("consent") === "on",
     };
@@ -38,6 +39,7 @@ export function PetitionForm() {
       full_name: parsed.data.full_name,
       email: parsed.data.email,
       phone: parsed.data.phone || null,
+      country: parsed.data.country || null,
       reason: parsed.data.reason || null,
       consent: true,
     });
@@ -61,6 +63,9 @@ export function PetitionForm() {
       </Field>
       <Field label={t.phone}>
         <input name="phone" maxLength={50} className={inputCls} />
+      </Field>
+      <Field label="Country">
+        <input name="country" maxLength={100} className={inputCls} placeholder="e.g. Sri Lanka" />
       </Field>
       <Field label={t.reason}>
         <textarea name="reason" rows={4} maxLength={1000} className={inputCls} />
